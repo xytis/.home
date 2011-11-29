@@ -14,16 +14,24 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	echo $OK_FLAG
 fi
 
-# delete existing .zshrc
+# delete existing .zshrc and .gemrc
 if [ -f "$SETTINGS" ]; then
 	echo -n "deleting $SETTINGS ... "
 	rm $SETTINGS
+	echo $OK_FLAG
+
+	echo -n "deleting $HOME/.gemrc"
+	rm "$HOME/.gemrc"
 	echo $OK_FLAG
 fi
 
 # setting new symlink
 echo -n "setting new symlink for .zshrc ... "
 ln -s $WD/.zshrc $HOME/.zshrc
+echo $OK_FLAG
+
+echo -n "setting new symlink for .gemrc ... "
+ln -s $WD/.gemrc $HOME/.gemrc
 echo $OK_FLAG
 
 # check for dependencies ...
@@ -43,13 +51,14 @@ if [ ! -f "$HOME/.screenrc" ]; then
 fi
 
 # install ssh blacklisting tool
-if [ ! -f "$HOME/bin/sshblack" ]; then
-	echo -n "setting new symlink for sshblack"
+if [ ! -f "$HOME/sshblack" ]; then
+	echo -n "setting new symlink for sshblack "
 	ln -s $WD/bin/sshblack $HOME/sshblack
 	echo $OK_FLAG
 
 	echo "running sshblack for the first time"
-	sudo $WD/bin/sshblack/sshblack.pl
+	sudo $HOME/sshblack/sshblack.pl
+	echo $OK_FLAG
 fi
 
 echo ""
