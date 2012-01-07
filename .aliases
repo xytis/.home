@@ -12,3 +12,7 @@ alias clear='echo "dont do that, use CTRL-L instead!"'
 # this damn shutdown thing annoys me anytime I'm forced to do this, so stop it!
 alias poweroff='sudo shutdown -h now'
 alias killit='kill -9 '
+
+alias g='git'
+alias gs='git status'
+alias e='vim'
