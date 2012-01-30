@@ -52,3 +52,6 @@ source $DOT_HOME/.macports
 if [ -f "$HOME/.local.zshrc" ]; then
 	source $HOME/.local.zshrc
 fi
+
+
+export EDITOR=`which vim`
