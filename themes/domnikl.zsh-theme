@@ -1,20 +1,53 @@
-# Hey ho - let's go!
+#
+# A simple theme that only shows relevant information.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Dominik Liebler <liebler.dominik@googlemail.com>
+#
 
-# git settings
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX=" %{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}⚡%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$reset_color%}"
+function prompt_domnikl_precmd () {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
 
-# are you root? show me!
-IAM=""
-if [ "$UID" = "0" ]; then
-	IAM="%{$fg[red]%}root|%{$reset_color%}"
-fi
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
 
-SEPARATOR="%{$fg[red]%}|%{$fg[reset_color]%}"
+function prompt_domnikl_setup() {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
 
-PROMPT='%{$fg[yellow]%}$HOST$SEPARATOR$IAM%{$fg[cyan]%}%1~%{$reset_color%}$SEPARATOR$(git_prompt_info)%{$fg[cyan]%}%{$reset_color%} '
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd prompt_domnikl_precmd
 
-# ls colors, made with http://geoff.greer.fm/lscolors/
-export LSCOLORS='Gxdxhxhxbxegedabagacad'
+  zstyle ':omz:completion' indicator '%B%F{red}...%f%b'
+  zstyle ':omz:prompt' vicmd '%F{yellow}❮%f%B%F{red}❮%f%b%F{red}❮%f'
+  zstyle ':omz:plugin:git:prompt' action ':%%B%F{yellow}%s%f%%b'
+  zstyle ':omz:plugin:git:prompt' added ' %%B%F{green}✚%f%%b'
+  zstyle ':omz:plugin:git:prompt' ahead ' %%B%F{yellow}⬆%f%%b'
+  zstyle ':omz:plugin:git:prompt' behind ' %%B%F{yellow}⬇%f%%b'
+  zstyle ':omz:plugin:git:prompt' branch '%F{green}%b%f'
+  zstyle ':omz:plugin:git:prompt' deleted ' %%B%F{red}✖%f%%b'
+  zstyle ':omz:plugin:git:prompt' modified ' %%B%F{blue}✱%f%%b'
+  zstyle ':omz:plugin:git:prompt' renamed ' %%B%F{magenta}➜%f%%b'
+  zstyle ':omz:plugin:git:prompt' commit '%c'
+  zstyle ':omz:plugin:git:prompt' stashed ' %%B%F{cyan}✭%f%%b'
+  zstyle ':omz:plugin:git:prompt' unmerged ' %%B%F{yellow}═%f%%b'
+  zstyle ':omz:plugin:git:prompt' untracked ' %%B%F{white}◼%f%%b'
+  zstyle ':omz:plugin:git:prompt' prompt '%f%b%s'
+  zstyle ':omz:plugin:git:prompt' rprompt '%A%B%S%a%d%m%r%U%u'
+
+  SEPARATOR='%F{red}|'
+
+  PROMPT='%F{yellow}${HOST}${SEPARATOR}%F{cyan}%1~${SEPARATOR}%f${git_prompt_info} %(!.%B%F{red}#%f%b.%B%F{yellow}❯%f%b) '
+  RPROMPT='${VIM:+" %B%F{green}V%f%b"}${git_rprompt_info}'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_domnikl_setup "$@"
+
+
+

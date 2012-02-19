@@ -1,31 +1,29 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':omz:editor' keymap 'vi'
 
-# disabled due to custom theme
-export ZSH_THEME=""
+# Auto convert .... to ../..
+zstyle ':omz:editor' dot-expansion 'no'
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+# Set case-sensitivity for completion, history lookup, etc.
+zstyle ':omz:*:*' case-sensitive 'no'
 
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+# Color output (auto set to 'no' on dumb terminals).
+zstyle ':omz:*:*' color 'yes'
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+# Auto set the tab and window titles.
+zstyle ':omz:terminal' auto-title 'yes'
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
+# Set the plugins to load (see $OMZ/plugins/).
+zstyle ':omz:load' plugin 'archive' 'git'
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow textmate symfony2 phing redis-cli ruby ant debian gem github)
+# Set the prompt theme to load.
+# Setting it to 'random' loads a random theme.
+# Auto set to 'off' on dumb terminals.
+zstyle ':omz:prompt' theme 'sorin'
 
-source $ZSH/oh-my-zsh.sh
+# This will make you shout: OH MY ZSHELL!
+source "$HOME/.oh-my-zsh/init.zsh"
 
 export DOT_HOME=$HOME/.home
 export PATH=$PATH:$DOT_HOME/bin
@@ -52,7 +50,6 @@ source $DOT_HOME/.macports
 if [ -f "$HOME/.local.zshrc" ]; then
 	source $HOME/.local.zshrc
 fi
-
 
 export EDITOR=`which vim`
 
