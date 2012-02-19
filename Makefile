@@ -7,7 +7,7 @@ DEST_PATH = $(HOME)/.home
 DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc $(HOME)/sshblack
 
 # oh-my-zsh Repository to be used
-OH_MY_REPO = git://github.com/robbyrussell/oh-my-zsh.git
+OH_MY_REPO = https://github.com/sorin-ionescu/oh-my-zsh.git
 
 # local .zshrc (gets inserted into .zshrc for local specialities)
 LOCAL_SETTINGS_FILE = $(HOME)/.local.zshrc
@@ -32,6 +32,9 @@ sshblack:
 # target to clone oh-my-zsh repository
 $(HOME)/.oh-my-zsh:
 	git clone $(OH_MY_REPO) $(HOME)/.oh-my-zsh
+	cd $(HOME)/.oh-my-zsh
+	git submodule update --init --recursive
+	
 	
 # sym links
 $(HOME)/.zshrc:
