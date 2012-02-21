@@ -41,9 +41,6 @@ source $DOT_HOME/themes/domnikl.zsh-theme
 # set environment variables ...
 source $DOT_HOME/.environment_variables
 
-# fortune cookie ;-)
-source $DOT_HOME/.fortune
-
 source $DOT_HOME/.macports
 
 # add a local .local.zshrc file, if it exists
