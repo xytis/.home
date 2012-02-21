@@ -53,5 +53,8 @@ fi
 
 export EDITOR=`which vim`
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source $HOME/.rvm/scripts/rvm
+if [ -d "$HOME/.rvm/bin" ]; then
+	PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+	source $HOME/.rvm/scripts/rvm
+fi
+

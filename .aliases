@@ -17,5 +17,5 @@ alias gs='git status'
 alias gl='git log'
 alias e='vim'
 
-hash -d workspace=~/Workspace
-hash -d talks=~/Workspace/talks
+hash -d w=~/Workspace
+hash -d t=~/Workspace/talks
