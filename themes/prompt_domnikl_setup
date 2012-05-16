@@ -15,12 +15,6 @@ function prompt_domnikl_precmd {
   fi
 }
 
-function domnikl_user {
-	$USERNAME
-
-	
-}
-
 function prompt_domnikl_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
