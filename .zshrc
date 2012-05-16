@@ -1,9 +1,20 @@
+#
+# Sets Oh My Zsh options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+DOT_HOME="$HOME/.home"
+
+# Set the path to Oh My Zsh.
+export OMZ="$HOME/.oh-my-zsh"
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':omz:editor' keymap 'vi'
+zstyle ':omz:module:editor' keymap 'emacs'
 
 # Auto convert .... to ../..
-zstyle ':omz:editor' dot-expansion 'no'
+zstyle ':omz:module:editor' dot-expansion 'no'
 
 # Set case-sensitivity for completion, history lookup, etc.
 zstyle ':omz:*:*' case-sensitive 'no'
@@ -12,46 +23,40 @@ zstyle ':omz:*:*' case-sensitive 'no'
 zstyle ':omz:*:*' color 'yes'
 
 # Auto set the tab and window titles.
-zstyle ':omz:terminal' auto-title 'yes'
+zstyle ':omz:module:terminal' auto-title 'yes'
 
-# Set the plugins to load (see $OMZ/plugins/).
-zstyle ':omz:load' plugin 'archive' 'git'
+# Set the Zsh modules to load (man zshmodules).
+# zstyle ':omz:load' zmodule 'attr' 'stat'
+
+# Set the Zsh functions to load (man zshcontrib).
+# zstyle ':omz:load' zfunction 'zargs' 'zmv'
+
+# Set the Oh My Zsh modules to load (browse modules).
+zstyle ':omz:load' omodule 'environment' 'terminal' 'editor' 'completion' \
+  'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt' 'git'
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':omz:prompt' theme 'sorin'
+source "$DOT_HOME/themes/prompt_domnikl_setup"
+zstyle ':omz:module:prompt' theme 'domnikl'
 
 # This will make you shout: OH MY ZSHELL!
-source "$HOME/.oh-my-zsh/init.zsh"
+source "$OMZ/init.zsh"
 
-export DOT_HOME=$HOME/.home
-export PATH=$PATH:$DOT_HOME/bin
-
-if [ -d "$HOME/bin" ]; then
-	export PATH=$PATH:$HOME/bin
-fi
-
-# aliases
+# Customize to your needs...
 source $DOT_HOME/.aliases
-
-# load custom theme
-source $DOT_HOME/themes/domnikl.zsh-theme
-
-# set environment variables ...
 source $DOT_HOME/.environment_variables
 
-source $DOT_HOME/.macports
+export EDITOR=`which vim`
 
 # add a local .local.zshrc file, if it exists
 if [ -f "$HOME/.local.zshrc" ]; then
 	source $HOME/.local.zshrc
 fi
 
-export EDITOR=`which vim`
-
 if [ -d "$HOME/.rvm/bin" ]; then
-	PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+	PATH=$PATH:$HOME/.rvm/bin # add RVM to PATH
 	source $HOME/.rvm/scripts/rvm
 fi
 
