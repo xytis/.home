@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Dominik Liebler <liebler.dominik@googlemail.com>
 #
 
 DOT_HOME="$HOME/.home"
@@ -25,9 +26,6 @@ zstyle ':omz:*:*' color 'yes'
 # Auto set the tab and window titles.
 zstyle ':omz:module:terminal' auto-title 'yes'
 
-# Set the Zsh modules to load (man zshmodules).
-# zstyle ':omz:load' zmodule 'attr' 'stat'
-
 # Set the Zsh functions to load (man zshcontrib).
 # zstyle ':omz:load' zfunction 'zargs' 'zmv'
 
@@ -38,7 +36,6 @@ zstyle ':omz:load' omodule 'environment' 'terminal' 'editor' 'completion' \
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-source "$DOT_HOME/themes/prompt_domnikl_setup"
 zstyle ':omz:module:prompt' theme 'domnikl'
 
 # This will make you shout: OH MY ZSHELL!
@@ -50,7 +47,7 @@ source $DOT_HOME/.environment_variables
 
 export EDITOR=`which vim`
 
-# add a local .local.zshrc file, if it exists
+# load ~/.local.zshrc file, if it exists
 if [ -f "$HOME/.local.zshrc" ]; then
 	source $HOME/.local.zshrc
 fi

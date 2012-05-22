@@ -5,7 +5,6 @@ alias l='ls -lah'
 # ack is http://betterthangrep.com
 alias ack='ack-grep'
 alias erln='erl -noshell'
-alias please='sudo !!'
 alias ns='netstat -t --numeric-ports | grep '
 
 alias clear='echo "dont do that, use CTRL-L instead!"'
@@ -16,8 +15,6 @@ alias poweroff='sudo shutdown -h now'
 alias g='git'
 alias gpom='git push origin master'
 alias gs='git status'
-alias gl='git log'
-alias e='vim'
 
 hash -d w=~/Workspace
 hash -d t=~/Workspace/talks
