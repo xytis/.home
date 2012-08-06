@@ -53,7 +53,7 @@ if [ -f "$HOME/.local.zshrc" ]; then
 fi
 
 if [ -d "$HOME/.rvm/bin" ]; then
-	PATH=$PATH:$HOME/.rvm/bin # add RVM to PATH
+	PATH=$PATH:$DOT_HOME/bin:$HOME/.rvm/bin # add RVM to PATH
 	source $HOME/.rvm/scripts/rvm
 fi
 
