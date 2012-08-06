@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# git record
+#
+# simple script to record coding dojos
+#
+# Usage: git record
+
+STEP_FILE=".step"
+
+if [ ! -d ".git" ]; then
+	# init git
+	git init .
+	echo "-1" > $STEP_FILE
+	echo "$STEP_FILE\n.idea" > .gitignore
+	git add .gitignore
+fi
+
+STEP=`cat $STEP_FILE`
+STEP=$(($STEP+1))
+
+git add *
+git commit -m "Step $STEP"
+
+if [ "$?" -eq "0" ]; then
+	echo "$STEP" > $STEP_FILE
+fi
