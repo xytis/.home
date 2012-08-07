@@ -14,6 +14,11 @@ if [ ! -d ".git" ]; then
 	echo "-1" > $STEP_FILE
 	echo "$STEP_FILE\n.idea" > .gitignore
 	git add .gitignore
+else
+	if [ ! -f  ".step" ]; then
+		echo "this is not a valid git-record repository, no .step file was found in $(pwd)" 1>&2 
+		exit 1
+	fi
 fi
 
 STEP=`cat $STEP_FILE`
@@ -25,3 +30,4 @@ git commit -m "Step $STEP"
 if [ "$?" -eq "0" ]; then
 	echo "$STEP" > $STEP_FILE
 fi
+
