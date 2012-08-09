@@ -2,21 +2,52 @@
 
 # git record
 #
-# simple script to record coding dojos
+# CLI tool to record coding dojos
 #
-# Usage: git record
+# Usage: 
+# git record
+#
+# git record clean
+#	clean the repository: remove all git-record relevant information
+#
+# copyright 2012 by Dominik Liebler
+#
 
 STEP_FILE=".step"
+SNAPSHOT_DIR=".snapshots"
+TAKE_SNAPSHOTS=`which streamer > /dev/null`
+VIDEO_DEVICE=`ls /dev/video*`
 
+# print usage information
+if [ "$1" = "-h" ]; then
+	echo "Usage: git record [clean]"
+	exit 0
+fi
+
+# clean
+if [ "$1" = "clean" ]; then
+	rm -rf $STEP_FILE $SNAPSHOT_DIR .gitignore .git
+	exit 0
+fi
+
+# init git repository if current dir is not in any
 if [ ! -d ".git" ]; then
+	git status > /dev/null 2>&1
+	if [ "$?" -eq 0 ]; then
+		echo "'$(pwd)' is in a subdirectory of an existing git repository, please run 'git record' in it's root dir" 1>&2
+		exit 1
+	fi
+
+
 	# init git
 	git init .
+	mkdir $SNAPSHOT_DIR
 	echo "-1" > $STEP_FILE
-	echo "$STEP_FILE\n.idea" > .gitignore
+	echo "$STEP_FILE\n$SNAPSHOT_DIR\n.idea" > .gitignore
 	git add .gitignore
 else
 	if [ ! -f  ".step" ]; then
-		echo "this is not a valid git-record repository, no .step file was found in $(pwd)" 1>&2 
+		echo "this is not a valid git-record repository, no .step file was found in '$(pwd)'" 1>&2
 		exit 1
 	fi
 fi
@@ -29,5 +60,11 @@ git commit -m "Step $STEP"
 
 if [ "$?" -eq "0" ]; then
 	echo "$STEP" > $STEP_FILE
+
+	# take a snapshot from the user who committed the step
+	# if streamer is installed
+	if $TAKE_SNAPSHOTS; then
+		streamer -c $VIDEO_DEVICE -o "$SNAPSHOT_DIR/$STEP.jpeg" >/dev/null 2>&1
+	fi
 fi
 
