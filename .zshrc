@@ -41,6 +41,8 @@ zstyle ':omz:module:prompt' theme 'domnikl'
 # This will make you shout: OH MY ZSHELL!
 source "$OMZ/init.zsh"
 
+source "$DOT_HOME/git-flow-completion.zsh"
+
 # Customize to your needs...
 source $DOT_HOME/.aliases
 source $DOT_HOME/.environment_variables

@@ -19,7 +19,7 @@ THEME = prompt_domnikl_setup
 
 
 
-install: $(HOME)/.oh-my-zsh clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) help
+install: $(HOME)/.oh-my-zsh clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) help completions
 	
 clean:
 	rm -f $(DOT_FILES)
@@ -29,6 +29,9 @@ help:
 	@echo " => now run 'chsh -s' to change your used shell to activate settings"
 	@echo 
 	@echo "run 'make sshblack' to run sshblack.pl for the first time"
+
+completions:
+	wget -q https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.zsh
 
 sshblack:
 	# run it the first time to register cron job
