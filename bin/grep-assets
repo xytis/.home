@@ -1,0 +1,12 @@
+#!/bin/sh
+
+NAME=`basename "$0"`
+
+if [ "$1" = "-h" ]; then
+	echo "Usage: $NAME [log-file]"
+	echo ""
+	echo "greps an Apache HTTP access log for used assets"
+	exit 0;
+fi
+
+cat "$1" | grep '\.\(jpg\|png\|css\|gif\|svg\|js\)' | grep -v "phpmyadmin" | awk '{print $8}' | sort | uniq | sed 's/?v=[0-9\.]*//g'
