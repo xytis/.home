@@ -62,7 +62,7 @@ theme:
 
 gems:
 	@echo "installing gems ..."
-	%(BUNDLE_BIN) install
+	$(BUNDLE_BIN) install
 
 # local settings file
 $(LOCAL_SETTINGS_FILE):
