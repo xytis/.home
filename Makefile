@@ -4,7 +4,7 @@
 DEST_PATH = $(HOME)/.home
 
 # files to delete from $HOME
-DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc $(HOME)/sshblack
+DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc 
 
 # prezto Repository to be used
 PREZTO_REPO = https://github.com/sorin-ionescu/prezto.git
@@ -34,10 +34,6 @@ help:
 completions:
 	wget -q https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.zsh
 
-sshblack:
-	# run it the first time to register cron job
-	sudo $(HOME)/sshblack/sshblack.pl
-
 # target to clone prezto repository
 $(HOME)/.prezto:
 	git clone $(PREZTO_REPO) $(HOME)/.prezto
@@ -53,9 +49,6 @@ $(HOME)/.gemrc:
 
 $(HOME)/.screenrc:
 	ln -s $(DEST_PATH)/.screenrc $(HOME)/.screenrc
-
-$(HOME)/sshblack:
-	ln -s $(DEST_PATH)/bin/sshblack $(HOME)/sshblack
 
 theme:
 	ln -s $(DEST_PATH)/themes/$(THEME) $(HOME)/.prezto/modules/prompt/functions/$(THEME)
