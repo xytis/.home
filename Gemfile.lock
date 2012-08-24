@@ -1,0 +1,17 @@
+GEM
+  remote: http://rubygems.org/
+  remote: http://rubygems.org/
+  remote: http://rubygems.org/
+  remote: http://gems.rubyforge.org/
+  remote: http://rubygems.org/
+  remote: http://gemcutter.org/
+  specs:
+    cssmin (1.0.2)
+    jsmin (1.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cssmin
+  jsmin
