@@ -15,24 +15,24 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 
 ## Commands
 
-* +x: chmod +x alias
-* git up: show information about changes after pulling, params like git-pull
-* git reup: as git up, but does git pull --rebase
-* git wtf: show sync information
-* git record: record coding dojo, uses streamer to create pictures of the committer, if available
-* git deleteit: git rm on all deleted files
-* grep-assets: grep Apache2 log for requested assets
-* minify: minify CSS and JS files
-* to_mp3: Download videos via youtube-dl and convert to mp3 via ffmpeg
-* convert_mp3: Convert all non-mp3 files in a directory to mp3
-* lyrics: show the lyrics to the song currently playing in iTunes
+* `+x` chmod +x alias
+* `git up` show information about changes after pulling, params like git-pull
+* `git reup` as git up, but does git pull --rebase
+* `git wtf` show sync information
+* `git record` record coding dojo, uses streamer to create pictures of the committer, if available
+* `git deleteit` git rm on all deleted files
+* `grep-assets` grep Apache2 log for requested assets
+* `minify` minify CSS and JS files
+* `to_mp3` Download videos via youtube-dl and convert to mp3 via ffmpeg
+* `convert_mp3` Convert all non-mp3 files in a directory to mp3
+* `lyrics` show the lyrics to the song currently playing in iTunes
 
 ## Aliases
 
-* l: ls -lah
-* g: git
-* gs: git status
-* gpom: git push origin master
-* start-storm: starts PHPStorm
-* ns: grep for TCP or UDP connections
-* poweroff: do shutdown -h now
+* `l` ls -lah
+* `g` git
+* `gs` git status
+* `gpom` git push origin master
+* `start-storm` starts PHPStorm
+* `ns` grep for TCP or UDP connections
+* `poweroff` do shutdown -h now
