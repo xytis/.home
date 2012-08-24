@@ -3,7 +3,7 @@ alias l='ls -lah'
 # ack is http://betterthangrep.com
 alias ack='ack-grep'
 alias erln='erl -noshell'
-alias ns='netstat -t --numeric-ports | grep '
+alias ns='netstat -tulpen | grep '
 
 alias clear='echo "dont do that, use CTRL-L instead!"'
 
