@@ -1,0 +1,9 @@
+#!/bin/sh
+
+FILES=`ls | grep -v ".mp3$"`
+
+for i in $FILES
+do
+  echo "$i"
+  ffmpeg -i "$i" "$i.mp3"
+done
