@@ -16,7 +16,7 @@
 STEP_FILE=".step"
 SNAPSHOT_DIR=".snapshots"
 TAKE_SNAPSHOTS=`which streamer > /dev/null`
-VIDEO_DEVICE=`ls /dev/video*`
+VIDEO_DEVICE=`ls /dev/video* | head -1`
 
 # print usage information
 if [ "$1" = "-h" ]; then
@@ -67,4 +67,3 @@ if [ "$?" -eq "0" ]; then
 		streamer -c $VIDEO_DEVICE -o "$SNAPSHOT_DIR/$STEP.jpeg" >/dev/null 2>&1
 	fi
 fi
-
