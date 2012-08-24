@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# lyrics.sh
+#
+# A fine piece of work by @febuiles
+#   https://gist.github.com/1549979
+#
+# stolen from holman/dotfiles
+# https://github.com/holman/dotfiles/blob/master/bin/lyrics
+
+artist=`osascript -e'tell application "iTunes"' -e'get artist of current track' -e'end tell'`
+title=`osascript -e'tell application "iTunes"' -e'get name of current track' -e'end tell'`
+
+song=`curl -G --data-urlencode "artist=$artist" \
+ 	--data-urlencode "title=$title" -s http://makeitpersonal.co/lyrics`
+
+echo "$artist - $title\n$song"
