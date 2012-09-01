@@ -36,3 +36,12 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `start-storm` starts PHPStorm
 * `ns` grep for TCP or UDP connections
 * `poweroff` do shutdown -h now
+
+## Directory Hashes
+
+* `~w` ~/Workspace
+* `~t` ~/Workspace/talks
+* `~app` /var/www/app
+* `~log` /var/log
+* `~init` /etc/init.d
+

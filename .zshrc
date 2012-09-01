@@ -47,7 +47,19 @@ source "$DOT_HOME/git-flow-completion.zsh"
 source $DOT_HOME/.aliases
 source $DOT_HOME/.environment_variables
 
-export EDITOR=`which vim`
+set_editor() {
+	if [ `which mate` ]; then
+		E=`which mate`
+	elif [ `which vim` ]; then
+		E=`which vim`
+	else
+		E=`which vi`
+	fi
+	
+	export EDITOR=$E
+}
+
+set_editor
 
 # load ~/.local.zshrc file, if it exists
 if [ -f "$HOME/.local.zshrc" ]; then

@@ -1,0 +1,16 @@
+[diff]
+	color = auto
+	rename = copy
+
+[pager]
+	color = true
+
+[status]
+	color = true
+
+[alias]
+	pom = push origin master
+	pull = reup
+[user]
+	name = Dominik Liebler
+	email = liebler.dominik@googlemail.com

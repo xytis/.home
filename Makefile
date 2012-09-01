@@ -4,7 +4,7 @@
 DEST_PATH = $(HOME)/.home
 
 # files to delete from $HOME
-DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc 
+DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc $(HOME)/.gitconfig
 
 # prezto Repository to be used
 PREZTO_REPO = https://github.com/sorin-ionescu/prezto.git
@@ -18,7 +18,7 @@ BUNDLE_BIN = `which bundle`
 
 
 
-install: $(HOME)/.prezto clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) help completions gems
+install: $(HOME)/.prezto clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions gems help
 	
 clean:
 	@echo "cleaning dotfiles ..."
@@ -27,12 +27,11 @@ clean:
 help:
 	@echo "done"
 	@echo 
-	@echo " => now run 'chsh -s' to change your used shell to activate settings"
-	@echo 
-	@echo "run 'make sshblack' to run sshblack.pl for the first time"
+	@echo " => run 'chsh -s' to change your used shell to activate settings"
 
 completions:
-	wget -q https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.zsh
+	@echo "downloading git flow completions for zsh ..."
+	@wget -q -nc https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.zsh
 
 # target to clone prezto repository
 $(HOME)/.prezto:
@@ -50,8 +49,11 @@ $(HOME)/.gemrc:
 $(HOME)/.screenrc:
 	ln -s $(DEST_PATH)/.screenrc $(HOME)/.screenrc
 
+$(HOME)/.gitconfig:
+	ln -s $(DEST_PATH)/.gitconfig $(HOME)/.gitconfig
+
 theme:
-	ln -s $(DEST_PATH)/themes/$(THEME) $(HOME)/.prezto/modules/prompt/functions/$(THEME)
+	ln -fs $(DEST_PATH)/themes/$(THEME) $(HOME)/.prezto/modules/prompt/functions/$(THEME)
 
 gems:
 	@echo "installing gems ..."

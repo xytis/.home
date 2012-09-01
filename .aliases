@@ -14,7 +14,11 @@ alias g='git'
 alias gpom='git push origin master'
 alias gs='git status'
 
+# hash directories
 hash -d w=~/Workspace
 hash -d t=~/Workspace/talks
+hash -d app=/var/www/app
+hash -d log=/var/log
+hash -d init=/etc/init.d
 
 alias "start-storm"="~/bin/PhpStorm-117.257/bin/phpstorm.sh >/dev/null 2>&1 &"
