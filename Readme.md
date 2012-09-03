@@ -21,11 +21,15 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `git wtf` show sync information
 * `git record` record coding dojo, uses streamer to create pictures of the committer, if available
 * `git deleteit` git rm on all deleted files
+* `git ignore` add $1 to .gitignore
 * `grep-assets` grep Apache2 log for requested assets
 * `minify` minify CSS and JS files
 * `to_mp3` Download videos via youtube-dl and convert to mp3 via ffmpeg
 * `convert_mp3` Convert all non-mp3 files in a directory to mp3
 * `lyrics` show the lyrics to the song currently playing in iTunes
+* `loadaverage` print load average data
+* `psgrep` grep `ps aux` output
+* `shoot` take a snapshot from a webcam
 
 ## Aliases
 
@@ -33,7 +37,7 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `g` git
 * `gs` git status
 * `gpom` git push origin master
-* `start-storm` starts PHPStorm
+* `phpstorm` starts PHPStorm
 * `ns` grep for TCP or UDP connections
 * `poweroff` do shutdown -h now
 

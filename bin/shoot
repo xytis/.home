@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Usage: shoot output-directory
+#
+
+set -e
+
+OUT_DIR="$1"
+VIDEO_DEVICE=`ls /dev/video* | head -1`
+STREAMER=`which streamer`
+IMAGESNAP=`which imagesnap`
+
+if [ "$OUT_DIR" = "-h" ]; then
+    echo "Usage: $0 output-directory"
+    exit 0
+elif [ "$OUT_DIR" = "" ]; then
+    echo "you have to supply an argument as the output directory" >&2
+    exit 1
+fi
+
+$FILENAME=$OUT_DIR/$(date +%Y%m%d%H%M%S).jpeg
+
+if [ $STREAMER ]; then
+    $STREAMER -c $VIDEO_DEVICE -o "$FILENAME" >/dev/null 2>&1
+elif [ $IMAGESNAP ]; then
+    $IMAGESNAP "$FILENAME" >/dev/null 2>&1
+else
+    echo "neither streamer nor imagesnap is installed, aborting." 2>&1
+fi

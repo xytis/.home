@@ -21,4 +21,4 @@ hash -d app=/var/www/app
 hash -d log=/var/log
 hash -d init=/etc/init.d
 
-alias "start-storm"="~/bin/PhpStorm-117.257/bin/phpstorm.sh >/dev/null 2>&1 &"
+alias "phpstorm"="~/bin/PhpStorm-117.257/bin/phpstorm.sh >/dev/null 2>&1 &"
