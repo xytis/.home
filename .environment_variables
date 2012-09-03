@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 export TEST_ENVIRONMENT=local
 
 # use colors in  git diff
