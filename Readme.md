@@ -37,10 +37,11 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `l` 			ls -lah
 * `g` 			git
 * `gs` 			git status
+* `gh` 			open my github profile in Chrome
 * `gpom` 		git push origin master
-* `phpstorm` 	starts PHPStorm
+* `phpstorm` 		starts PHPStorm
 * `ns` 			grep for TCP or UDP connections
-* `feierabend` 	do shutdown -h now
+* `feierabend` 		do shutdown -h now
 
 ## Directory Hashes
 

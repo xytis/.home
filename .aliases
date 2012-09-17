@@ -23,3 +23,12 @@ hash -d log=/var/log
 hash -d init=/etc/init.d
 
 alias "phpstorm"="~/bin/PhpStorm-121.215/bin/phpstorm.sh >/dev/null 2>&1 &"
+
+GITHUB="https://github.com/domnikl"
+
+if `which google-chrome > /dev/null`; then
+	alias gh="google-chrome '$GITHUB' >/dev/null 2>&1"
+else
+	alias gh="open '$GITHUB'"
+fi
+
