@@ -59,3 +59,6 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	source $HOME/.rvm/scripts/rvm
 fi
 
+
+# check for and install updates if available
+update
