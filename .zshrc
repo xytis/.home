@@ -45,19 +45,7 @@ source "$DOT_HOME/git-flow-completion.zsh"
 
 # Customize to your needs...
 source $DOT_HOME/.aliases
-source $DOT_HOME/.environment_variables
-
-set_editor() {
-	if [[ `which mate 2>&1` != *"not found"* ]]; then
-		E=`which mate`
-	elif [[ `which vim 2>&1` != *"not found"* ]]; then
-		E=`which vim`
-	else
-		E=`which vi`
-	fi
-	
-	export EDITOR=$E
-}
+source $DOT_HOME/funcs.sh
 
 set_editor
 

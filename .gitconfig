@@ -10,7 +10,8 @@
 
 [alias]
 	pom = push origin master
-	pull = reup
 [user]
 	name = Dominik Liebler
 	email = liebler.dominik@googlemail.com
+[color]
+	diff = auto

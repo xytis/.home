@@ -1,8 +1,0 @@
-#!/bin/sh
-
-export TEST_ENVIRONMENT=local
-
-# use colors in  git diff
-if [[ `which git 2>&1` != *"not found"* ]]; then
-	git config --global color.diff auto
-fi
