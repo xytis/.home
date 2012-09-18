@@ -6,6 +6,7 @@ set -e
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "Usage: github [-a|-h]"
+    exit 0
 fi
 
 if [ -e ".git" ]; then
