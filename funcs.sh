@@ -12,7 +12,7 @@ set_editor() {
 
 # display help for lost devs ...
 help() {
-	less $DOT_HOME/README.md
+	less "$DOT_HOME/Readme.md"
 }
 
 update() {

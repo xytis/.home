@@ -5,15 +5,15 @@ alias ack='ack-grep'
 alias erln='erl -noshell'
 alias ns='netstat -tulpen | grep '
 
-alias clear='echo "don\'t do that, use CTRL-L instead!"'
+alias clear='echo "don´t do that, use CTRL-L instead!"'
 
 # this damn shutdown thing annoys me anytime I'm forced to do this, so stop it!
 alias poweroff='sudo shutdown -h now'
 alias feierabend='poweroff'
 
 alias g='git'
-alias gpom='git push origin master'
 alias gs='git status'
+alias gpom='git push origin master'
 
 # hash directories
 hash -d w=~/Workspace
@@ -22,13 +22,12 @@ hash -d app=/var/www/app
 hash -d log=/var/log
 hash -d init=/etc/init.d
 
-alias "phpstorm"="~/bin/PhpStorm-121.215/bin/phpstorm.sh >/dev/null 2>&1 &"
+alias phpstorm="~/bin/PhpStorm-121.215/bin/phpstorm.sh >/dev/null 2>&1 &"
 
 GITHUB="https://github.com/domnikl"
 
 if `which google-chrome > /dev/null`; then
-	alias gh="google-chrome '$GITHUB' >/dev/null 2>&1"
+	alias gh="google-chrome $GITHUB >/dev/null 2>&1"
 else
-	alias gh="open '$GITHUB'"
+	alias gh="open $GITHUB"
 fi
-
