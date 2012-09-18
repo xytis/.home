@@ -23,6 +23,7 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `git deleteit` 	git rm on all deleted files
 * `git ignore` 		add $1 to .gitignore
 * `git current` 	prints the name of the current branch
+* `git rb` 	        rebase current branch by comparing it with the remote tracking branch (with the same name)
 * `grep-assets` 	grep Apache2 log for requested assets
 * `minify` 			minify CSS and JS files
 * `to_mp3` 			Download videos via youtube-dl and convert to mp3 via ffmpeg

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# git-rb is a short for git rebase -i origin/<current-branch>
+#
+
+set -e
+
+UPSTREAM=`git remote | head`
+BRANCH=`git branch | grep "^*" | sed 's/* //g'`
+
+echo "Rebasing $BRANCH by comparing it to $UPSTREAM/$BRANCH"
+
+git rebase -i $UPSTREAM/$BRANCH
