@@ -5,7 +5,7 @@ alias ack='ack-grep'
 alias erln='erl -noshell'
 alias ns='netstat -tulpen | grep '
 
-alias clear='echo "dont do that, use CTRL-L instead!"'
+alias clear='echo "don\'t do that, use CTRL-L instead!"'
 
 # this damn shutdown thing annoys me anytime I'm forced to do this, so stop it!
 alias poweroff='sudo shutdown -h now'
