@@ -6,6 +6,9 @@
 #   Dominik Liebler <liebler.dominik@googlemail.com>
 #
 
+# Load dependencies
+pmodload 'helper'
+
 function prompt_domnikl_precmd {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
@@ -20,18 +23,20 @@ function prompt_domnikl_setup {
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent subst)
 
+  # Load required functions.
   autoload -Uz add-zsh-hook
+
   add-zsh-hook precmd prompt_domnikl_precmd
 
-  zstyle ':omz:module:editor' completing '%B%F{red} ...%f%b'
-  zstyle ':omz:module:editor:keymap' alternate ' %F{yellow}❮%f%B%F{red}❮%f%b%F{red}❮%f'
-  zstyle ':omz:module:git' added ' %%B%F{green}✚%f%%b'
-  zstyle ':omz:module:git' branch ':%F{yellow}%b%f'
-  zstyle ':omz:module:git' deleted ' %%B%F{red}✖%f%%b'
-  zstyle ':omz:module:git' modified ' %%B%F{blue}✱%f%%b'
-  zstyle ':omz:module:git' renamed ' %%B%F{magenta}➜%f%%b'
-  zstyle ':omz:module:git' untracked ' %%B%F{white}◼%f%%b'
-  zstyle ':omz:module:git' info \
+  zstyle ':prezto:module:editor' completing '%B%F{red} ...%f%b'
+  zstyle ':prezto:module:editor:keymap' alternate ' %F{yellow}❮%f%B%F{red}❮%f%b%F{red}❮%f'
+  zstyle ':prezto:module:git' added ' %%B%F{green}✚%f%%b'
+  zstyle ':prezto:module:git' branch ':%F{yellow}%b%f'
+  zstyle ':prezto:module:git' deleted ' %%B%F{red}✖%f%%b'
+  zstyle ':prezto:module:git' modified ' %%B%F{blue}✱%f%%b'
+  zstyle ':prezto:module:git' renamed ' %%B%F{magenta}➜%f%%b'
+  zstyle ':prezto:module:git' untracked ' %%B%F{white}◼%f%%b'
+  zstyle ':prezto:module:git' info \
     'prompt'  ' $(coalesce "%b" "%p" "%c")%s' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 

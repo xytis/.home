@@ -4,7 +4,7 @@
 DEST_PATH = $(HOME)/.home
 
 # files to delete from $HOME
-DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.screenrc $(HOME)/.gitconfig
+DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.gitconfig $(HOME)/.zprofile $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zshenv $(HOME)/.zpreztorc
 
 # prezto Repository to be used
 PREZTO_REPO = https://github.com/sorin-ionescu/prezto.git
@@ -16,9 +16,10 @@ THEME = prompt_domnikl_setup
 
 BUNDLE_BIN = `which bundle`
 
+PREZTO=.zprezto
 
-
-install: $(HOME)/.prezto clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions gems help
+install: $(HOME)/$(PREZTO) clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions help
+    touch $HOME/.z
 	
 clean:
 	@echo "cleaning dotfiles ..."
@@ -34,30 +35,42 @@ completions:
 	@wget -q -nc https://raw.github.com/bobthecow/git-flow-completion/master/git-flow-completion.zsh
 
 # target to clone prezto repository
-$(HOME)/.prezto:
-	git clone $(PREZTO_REPO) $(HOME)/.prezto
-	cd $(HOME)/.prezto
-	git submodule update --init --recursive
+$(HOME)/$(PREZTO):
+	git clone --recursive $(PREZTO_REPO) $(HOME)/$(PREZTO)
 
 # sym links
-$(HOME)/.zshrc:
-	ln -s $(DEST_PATH)/.zshrc $(HOME)/.zshrc
+
 
 $(HOME)/.gemrc:
 	ln -s $(DEST_PATH)/.gemrc $(HOME)/.gemrc
 
-$(HOME)/.screenrc:
-	ln -s $(DEST_PATH)/.screenrc $(HOME)/.screenrc
-
 $(HOME)/.gitconfig:
 	ln -s $(DEST_PATH)/.gitconfig $(HOME)/.gitconfig
 
-theme:
-	ln -fs $(DEST_PATH)/themes/$(THEME) $(HOME)/.prezto/modules/prompt/functions/$(THEME)
 
-gems:
-	@echo "installing gems ..."
-	$(BUNDLE_BIN) install
+
+
+
+$(HOME)/.zshrc:
+	ln -s $(DEST_PATH)/.zshrc $(HOME)/.zshrc
+
+$(HOME)/.zpreztorc:
+	ln -s $(DEST_PATH)/.zpreztorc $(HOME)/.zpreztorc
+
+$(HOME)/.zshenv:
+	ln -s $(DEST_PATH)/.zshenv $(HOME)/.zshenv
+
+$(HOME)/.zlogin:
+	ln -s $(DEST_PATH)/.zlogin $(HOME)/.zlogin
+
+$(HOME)/.zlogout:
+	ln -s $(DEST_PATH)/.zlogout $(HOME)/.zlogout
+
+$(HOME)/.zprofile:
+	ln -s $(DEST_PATH)/.zprofile $(HOME)/.zprofile
+
+theme:
+	ln -fs $(DEST_PATH)/themes/$(THEME) $(HOME)/$(PREZTO)/modules/prompt/functions/$(THEME)
 
 # local settings file
 $(LOCAL_SETTINGS_FILE):
