@@ -19,7 +19,7 @@ BUNDLE_BIN = `which bundle`
 PREZTO=.zprezto
 
 install: $(HOME)/$(PREZTO) clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions help
-    touch $HOME/.z
+	touch $(HOME)/.z
 	
 clean:
 	@echo "cleaning dotfiles ..."
