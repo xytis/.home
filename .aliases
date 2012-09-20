@@ -14,6 +14,8 @@ alias feierabend='poweroff'
 alias g='git'
 alias gs='git status'
 alias gpom='git push origin master'
+alias zstats='history | awk "{ print \$2 }" | sort | uniq -c | sort -nr'
+
 
 # hash directories
 hash -d w=~/Workspace
