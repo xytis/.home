@@ -45,7 +45,7 @@ update() {
 update_via_git() {
     pushd $HOME/.home
 
-	git stash save > /dev/null
+    git stash save > /dev/null
 	git pull --rebase origin master
 	git stash apply > /dev/null
 

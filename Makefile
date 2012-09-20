@@ -20,7 +20,7 @@ PREZTO=.zprezto
 
 install: $(HOME)/$(PREZTO) clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions help
 	touch $(HOME)/.z
-	
+
 clean:
 	@echo "cleaning dotfiles ..."
 	rm -f $(DOT_FILES)
