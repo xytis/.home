@@ -37,6 +37,7 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 ## Aliases
 
 * `l` 			ls -lah
+* `dg`			show disk free (`df`) only with relevant mounts
 * `g` 			git
 * `gs` 			git status
 * `gh` 			open my github profile in Chrome

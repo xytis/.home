@@ -15,7 +15,7 @@ alias g='git'
 alias gs='git status'
 alias gpom='git push origin master'
 alias zstats='history | awk "{ print \$2 }" | sort | uniq -c | sort -nr'
-
+alias dg='df -h | grep -v "^\(tmpfs\|udev\|none\)"'
 
 # hash directories
 hash -d w=~/Workspace
