@@ -25,9 +25,9 @@ if [ -e ".git" ]; then
         URL="https://"$URL
 
         if `which google-chrome > /dev/null`; then
-            google-chrome $URL >/dev/null 2>&1
+            google-chrome "$URL" >/dev/null 2>&1
         else
-            open $URL
+            open "$URL"
         fi
     else
         echo "no configured upstream found!" >&2
