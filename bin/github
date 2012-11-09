@@ -19,10 +19,12 @@ if [ -e ".git" ]; then
         UPSTREAM=`echo "$CONFIG" | grep -C 3 "remote \"origin\"" | grep "github.com"`
     fi
 
+    BRANCH=`git branch | grep "^*" | sed 's/* //g'`
+
     if [ "$UPSTREAM" != "" ]; then
         URL=`echo "$UPSTREAM" | sed 's/\(git@\)\|\(url\)\|\(\.git\)\|\[\ \]//g'`
         URL=`echo $URL | sed 's/:/\//g' | sed 's/\= //g'`
-        URL="https://"$URL
+        URL="https://"$URL"/tree/"$BRANCH
 
         if `which google-chrome > /dev/null`; then
             google-chrome "$URL" >/dev/null 2>&1
