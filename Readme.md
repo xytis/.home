@@ -24,6 +24,8 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `git ignore` 		add $1 to .gitignore
 * `git current` 	prints the name of the current branch
 * `git rb` 	        rebase current branch by comparing it with the remote tracking branch (with the same name)
+* `git fix`		like `git rb` but stashes local changes before rebasing and applies changes afterwards
+* `git cs`		open interactive cheatsheet in the browser
 * `github`          open the current Github project in Chrome or another browser
 * `grep-assets` 	grep Apache2 log for requested assets
 * `minify` 			minify CSS and JS files
