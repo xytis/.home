@@ -1,6 +1,8 @@
 #!/bin/sh
 #
 # open the git project in the current directory on Github
+# 
+# uses the git-current script!
 
 set -e
 
@@ -11,6 +13,7 @@ fi
 
 if [ -e ".git" ]; then
     CONFIG=`cat .git/config`
+	BRANCH=`git current`
 
     if [ "$1" = "-a" ]; then
         # open all submodule configs, too
@@ -19,10 +22,11 @@ if [ -e ".git" ]; then
         UPSTREAM=`echo "$CONFIG" | grep -C 3 "remote \"origin\"" | grep "github.com"`
     fi
 
-    BRANCH=`git branch | grep "^*" | sed 's/* //g'`
-
     if [ "$UPSTREAM" != "" ]; then
-        URL=`echo "$UPSTREAM" | sed 's/\(git@\)\|\(url\)\|\(\.git\)\|\[\ \]//g'`
+		URL=`echo "$UPSTREAM" | sed 's/\.git//g'`
+		URL=`echo "$URL" | sed 's/\url = //g'`
+		URL=`echo "$URL" | sed 's/\git@//g'`
+		
         URL=`echo $URL | sed 's/:/\//g' | sed 's/\= //g'`
         URL="https://"$URL"/tree/"$BRANCH
 
