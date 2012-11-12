@@ -27,7 +27,6 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `git cs`		open interactive cheatsheet in the browser
 * `github`          open the current Github project in Chrome or another browser
 * `grep-assets` 	grep Apache2 log for requested assets
-* `minify` 			minify CSS and JS files
 * `to_mp3` 			Download videos via youtube-dl and convert to mp3 via ffmpeg
 * `convert_mp3` 	Convert all non-mp3 files in a directory to mp3
 * `lyrics` 			show the lyrics to the song currently playing in iTunes
