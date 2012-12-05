@@ -1,0 +1,104 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+class Ctail
+  VERSION = %w(0 3 1)
+  
+  @@COLORS = {
+    :reset      => "\e[0m",
+    :red 	=> "\e[1;37;41m",
+    :green      => "\e[1;32m",
+    :yellow	=> "\e[1;33m",
+    :blue 	=> "\e[1;34m",
+    :magenta 	=> "\e[1;35m",
+    :cyan	=> "\e[1;36m"
+  }
+
+  # add setters for every color
+  #
+  @@COLORS.each do |key,value|
+    if key != :reset
+      define_method(key) do |word|
+        @colors[key] = [] unless @colors.include?(key)
+        @colors[key] << word
+      end
+    end
+  end
+
+  def initialize
+    @debug = false
+    @logs = []
+    @colors = {}
+  end
+
+  # add log files to be tail'ed
+  def <<(log)
+    @logs << log.to_s
+  end
+
+  # get all supported colors
+  #
+  def colors
+    @@COLORS.reject {|k,v| k == :reset }
+  end
+
+  # parse CLI options
+  #
+  def parse_options!
+    OptionParser.new do |opts|
+      opts.banner = "Usage: ctail [options] [logfile 1] [... logfile N]"
+
+      # add a CLI option to every color
+      colors().each do |key,color|
+        opts.on("-#{key[0]}", "--#{key} WORD", "highlight WORD in #{@@COLORS[key]}#{key}#{@@COLORS[:reset]}") do |word|
+          send(key, word)
+        end
+      end
+
+      opts.on('--debug', 'show debug output') do
+        @debug = true
+      end
+
+      opts.on_tail("--version", "Show version") do
+        puts Ctail::VERSION.join('.')
+        exit
+      end
+    end.parse!
+
+    # add log files
+    ARGV.to_a.each do |log|
+      self << log
+    end
+  end
+
+  # finally ... run ctail!
+  #
+  def run!
+    if @logs.length == 0
+      $stderr.puts "Please specify at least one log file to tail"
+      exit
+    end
+
+    pipes = ""
+    @colors.each do |color, words|
+      pwords = words.map { |h| "(#{h})" }
+
+      if words.length > 0
+        # Todo: remove Perl dependency and add color directly in Ruby!
+        pipes << "| perl -pe 's/#{pwords.join('|')}/#{@@COLORS[color]}$&#{@@COLORS[:reset]}/g'"
+      end
+    end
+
+    base_command = 'tail -f'
+
+    ex = "#{base_command} #{@logs.join(' ')} #{pipes}"
+    puts ex if @debug
+
+    exec(ex)
+  end
+end
+
+ctail = Ctail.new
+ctail.parse_options!
+ctail.run!
