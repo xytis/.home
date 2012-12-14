@@ -4,7 +4,7 @@
 DEST_PATH = $(HOME)/.home
 
 # files to delete from $HOME
-DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.gitconfig $(HOME)/.zprofile $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zshenv $(HOME)/.zpreztorc
+DOT_FILES = $(HOME)/.zshrc $(HOME)/.gemrc $(HOME)/.gitconfig $(HOME)/.zprofile $(HOME)/.zlogin $(HOME)/.zlogout $(HOME)/.zshenv $(HOME)/.zpreztorc $(HOME)/.coloritrc
 
 # prezto Repository to be used
 PREZTO_REPO = https://github.com/sorin-ionescu/prezto.git
@@ -48,6 +48,8 @@ $(HOME)/.gitconfig:
 	ln -s $(DEST_PATH)/.gitconfig $(HOME)/.gitconfig
 
 
+$(HOME)/.coloritrc:
+	ln -s $(DEST_PATH)/.coloritrc $(HOME)/.coloritrc
 
 
 

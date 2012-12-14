@@ -1,0 +1,14 @@
+red:Exception
+red:Error
+red:exiting
+red:root
+
+yellow:PHP Stack trace:
+yellow:PHP[ ]{1,}[0-9]{1,3}.
+yellow:PHP Strict standards
+yellow:Warning
+
+green:exited with code 0
+
+blue:==> (.*) <==
+
