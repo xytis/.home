@@ -14,7 +14,7 @@ alias feierabend='poweroff'
 alias g='git'
 alias gs='git status'
 alias gpom='git push origin master'
-alias zstats='history | awk "{ print \$2 }" | sort | uniq -c | sort -nr'
+alias zstats="history 1 | awk '{print \$2}' | awk 'BEGIN {FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail | sort -nr"
 alias dg='df -h | grep -v "^\(tmpfs\|udev\|none\)"'
 
 # hash directories
