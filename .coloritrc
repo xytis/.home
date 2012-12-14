@@ -1,3 +1,5 @@
+# colorit is https://github.com/domnikl/colorit
+# install: gem install colorit
 red:Exception
 red:Error
 red:exiting

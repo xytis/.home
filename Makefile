@@ -18,7 +18,7 @@ BUNDLE_BIN = `which bundle`
 
 PREZTO=.zprezto
 
-install: $(HOME)/$(PREZTO) clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) completions help
+install: $(HOME)/$(PREZTO) clean $(DOT_FILES) theme $(LOCAL_SETTINGS_FILE) gems completions help
 	touch $(HOME)/.z
 	
 clean:
@@ -29,6 +29,9 @@ help:
 	@echo "done"
 	@echo 
 	@echo " => run 'chsh -s' to change your used shell to activate settings"
+
+gems:
+	bundle install
 
 completions:
 	@echo "downloading git flow completions for zsh ..."

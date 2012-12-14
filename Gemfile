@@ -7,3 +7,4 @@ source "http://gemcutter.org"
 
 gem 'cssmin'
 gem 'jsmin'
+gem 'colorit'
