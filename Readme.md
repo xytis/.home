@@ -33,7 +33,6 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `loadaverage`   print load average data
 * `psgrep` 			  grep `ps aux` output
 * `shoot` 			  take a snapshot from a webcam
-* `ctail`         a colored `tail -f`, run `ctail -h` for more info
 
 ## Aliases
 
