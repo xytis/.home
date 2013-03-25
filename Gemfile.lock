@@ -6,12 +6,10 @@ GEM
   remote: http://rubygems.org/
   remote: http://gemcutter.org/
   specs:
-    cssmin (1.0.2)
-    jsmin (1.0.1)
+    colorit (0.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  cssmin
-  jsmin
+  colorit
