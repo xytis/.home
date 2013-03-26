@@ -16,6 +16,7 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 ## Commands
 
 * `+x` 				    chmod +x alias
+* `chrome`		          open given URL in Chrome
 * `git up` 			  show information about changes after pulling, params like git-pull
 * `git reup` 		  as git up, but does git pull --rebase
 * `git wtf` 		  show sync information
