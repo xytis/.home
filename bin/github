@@ -30,11 +30,7 @@ if [ -e ".git" ]; then
         URL=`echo $URL | sed 's/:/\//g' | sed 's/\= //g'`
         URL="https://"$URL"/tree/"$BRANCH
 
-        if `which google-chrome > /dev/null`; then
-            google-chrome "$URL" >/dev/null 2>&1
-        else
-            open "$URL"
-        fi
+        chrome "$URL"
     else
         echo "no configured upstream found!" >&2
     fi
