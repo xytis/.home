@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+URL=$1
+
+if `which google-chrome > /dev/null`; then
+  google-chrome "$URL" >/dev/null 2>&1
+else
+  open "$URL"
+fi
+
