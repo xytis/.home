@@ -26,6 +26,7 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `git current`   prints the name of the current branch
 * `git fix` 	    rebase current branch by comparing it with the remote tracking branch (with the same name)
 * `git cs`		    open interactive cheatsheet in the browser
+* `git ticket`		search for commits in the log with a given JIRA-ID
 * `github`        open the current Github project in Chrome or another browser
 * `grep-assets`   grep Apache2 log for requested assets
 * `to_mp3` 			  download videos via youtube-dl and convert to mp3 via ffmpeg
