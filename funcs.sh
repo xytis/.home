@@ -22,8 +22,6 @@ update() {
 	TODAY=`date +%Y%m%d`
 	((UPDATE_SHOULD = $TODAY - $INTERVAL))
 
-	echo "checking for update ..."
-
 	touch $UPDATE_FILE
 	LAST_UPDATE=`cat "$UPDATE_FILE"`
 	
@@ -36,9 +34,6 @@ update() {
 		echo "updating via git ..."
 		update_via_git
 		echo $TODAY >! $UPDATE_FILE
-	else
-		echo "nothing to do"
-		echo "Have a nice day!"
 	fi
 }
 
