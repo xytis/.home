@@ -1,3 +1,4 @@
 git-flow-completion.zsh
 .idea
 
+fortunes/*.dat

@@ -1,0 +1,15 @@
+May the debugger be with you!
+%
+"Object-oriented design is the roman numerals of computing." - Rob Pike
+%
+"Put commonly used code into libraries" - http://www.erlang.se/doc/programming_rules.shtml#REF15399
+%
+"Premature optimization is the root of all evil!"
+%
+"Do not program 'defensively'" - http://www.erlang.se/doc/programming_rules.shtml#HDR11
+%
+"Always embrace a functional programming style"
+%
+"Do not comment out old code - remove it" - http://www.erlang.se/doc/programming_rules.shtml#HDR40
+%
+"Thou shalt always strive for immutability!"

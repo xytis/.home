@@ -28,3 +28,8 @@ fi
 
 # check for and install updates if available
 update
+
+if which fortune > /dev/null; then
+    echo ""
+    fortune $HOME/.home/fortunes/programming
+fi

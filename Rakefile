@@ -17,10 +17,12 @@ zsh_theme = "domnikl"
 
 task :default => 'dotfiles:install'
 
+fortunes = %w(fortunes/programming)
+
 namespace :dotfiles do
   
   desc "main task to install all required libs and files"
-  task :install => [:framework, :completions, :theme, :symlinks, :bundle, :help] do
+  task :install => [:framework, :completions, :theme, :symlinks, :bundle, :fortunes, :help] do
     FileUtils.touch(File.join(dest_path, '.z'))
     FileUtils.touch(File.join(dest_path, local_settings_file))
   end
@@ -77,6 +79,17 @@ namespace :dotfiles do
     dot_files.each do |dot_file|
       puts "symlinking #{dot_file} .."
       FileUtils.ln_s(File.join(base_path, dot_file), File.join(dest_path, dot_file))
+    end
+  end
+
+  desc "compile fortunes"
+  task :fortunes do
+    if system "which strfile"
+      fortunes.each do |f|
+          system "strfile #{f} #{f}.dat"
+      end
+    else
+      puts "skipping compiling fortunes because of missing strfile tool"
     end
   end
 end
