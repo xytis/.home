@@ -13,6 +13,8 @@ fi
 
 # Customize to your needs...
 
+export GOPATH=$HOME/Workspace/gocode
+
 source "$DOT_HOME/git-flow-completion.zsh"
 
 # Customize to your needs...
