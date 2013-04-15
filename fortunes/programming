@@ -13,3 +13,5 @@ May the debugger be with you!
 "Do not comment out old code - remove it" - http://www.erlang.se/doc/programming_rules.shtml#HDR40
 %
 "Thou shalt always strive for immutability!"
+%
+"The secret to building large apps is never build large apps. Break your applications into small pieces. Then, assemble those testable, bite-sized pices into your big application." - Justin Meyer, author of JavaScriptMVC
