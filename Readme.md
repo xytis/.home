@@ -35,6 +35,8 @@ The setup script will then clone the [prezto](https://github.com/sorin-ionescu/p
 * `loadaverage`   print load average data
 * `psgrep` 			  grep `ps aux` output
 * `shoot` 			  take a snapshot from a webcam
+* `packagist`	get download counts for Packagist packages, call with $1 = username
+* `rubygems`    get download counts for Rubygems, call with $1 = username
 
 ## Aliases
 

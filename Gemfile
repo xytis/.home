@@ -6,3 +6,4 @@ source :gemcutter
 source "http://gemcutter.org"
 
 gem 'colorit'
+gem 'messie'

@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+username = ARGV[0]
+url = "https://packagist.org/packages/#{username}/"
+
+require 'messie'
+
+page = Messie::Page.crawl url
+packages = page.nokogiri.xpath('//li/h1')
+
+packages.each do |p|
+  name = p.xpath('a/text()')
+  value = p.xpath('span/text()')
+
+  value = value[1].to_s.strip
+  value = value.gsub(' ', '').to_i
+
+  puts "#{value} #{name}"
+end
+

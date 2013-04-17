@@ -7,9 +7,13 @@ GEM
   remote: http://gemcutter.org/
   specs:
     colorit (0.3.0)
+    messie (0.5.4)
+      nokogiri (>= 1.5.0)
+    nokogiri (1.5.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   colorit
+  messie

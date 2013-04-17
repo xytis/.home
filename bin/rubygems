@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+username = ARGV[0]
+url = "https://rubygems.org/profiles/#{username}"
+
+require 'messie'
+
+page = Messie::Page.crawl url
+packages = page.nokogiri.xpath('//div[@class="profile-list"]/ol/li')
+
+packages.each do |p|
+  name = username + '/' + p.xpath('a[@class="profile-rubygem"]/text()')[0].content().strip
+  value = p.xpath('a[@class="profile-downloads"]/div/span/text()')[0].content().gsub(',', '')
+
+  puts "#{value} #{name}"
+end
+
