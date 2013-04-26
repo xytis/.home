@@ -9,9 +9,13 @@
 	color = true
 
 [alias]
+  st = status
+  ci = commit
+  cim = commit -m
+  cam = commit -am
 	pom = push origin master
 [user]
-	name = Dominik Liebler
-	email = liebler.dominik@googlemail.com
+	name = Vytis Valentinavičius
+	email = xytis2000@gmail.com
 [color]
 	diff = auto

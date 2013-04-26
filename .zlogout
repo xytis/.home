@@ -2,13 +2,11 @@
 # Executes commands at logout.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Vytis Valentinavičius <xytis2000@gmail.com>
 #
 
-# Print the message.
-cat <<-EOF
+echo -e "BYE" | figlet -f small
 
-Thank you. Come again!
-  -- Dr. Apu Nahasapeemapetilon
-EOF
-
+if [ "$SHLVL" = 1 ]; then
+    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+fi

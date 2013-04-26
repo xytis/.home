@@ -13,8 +13,6 @@ fi
 
 # Customize to your needs...
 
-export GOPATH=$HOME/Workspace/gocode
-
 source "$DOT_HOME/git-flow-completion.zsh"
 
 # Customize to your needs...
@@ -31,7 +29,8 @@ fi
 # check for and install updates if available
 update
 
+echo -e "WELCOME TO XPC" | figlet -f small #makes cool greeting
+
 if which fortune > /dev/null; then
-    echo ""
-    fortune $HOME/.home/fortunes/programming
+    fortune -a     # makes our day a bit more fun.... :-)
 fi
