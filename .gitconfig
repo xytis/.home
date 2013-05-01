@@ -11,6 +11,7 @@
 [alias]
   st = status
   ci = commit
+  co = checkout
   cim = commit -m
   cam = commit -am
 	pom = push origin master
@@ -19,3 +20,5 @@
 	email = xytis2000@gmail.com
 [color]
 	diff = auto
+[push]
+	default = simple

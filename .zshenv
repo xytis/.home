@@ -100,7 +100,6 @@ fi
 # Customizations
 
 DOT_HOME=$HOME/.home
-export PATH=$PATH:$DOT_HOME/bin
 
 # add RVM to the Path
 if [ -d "$HOME/.rvm/bin" ]; then

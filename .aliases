@@ -18,18 +18,11 @@ alias zstats="history 1 | awk '{print \$2}' | awk 'BEGIN {FS=\"|\"}{print \$1}' 
 alias dg='df -h | grep -v "^\(tmpfs\|udev\|none\)"'
 
 # hash directories
-hash -d w=~/Workspace
-hash -d t=~/Workspace/talks
-hash -d app=/var/www/app
+hash -d p=~/Documents/Programing/Projects
+hash -d s=/media/Storage
 hash -d log=/var/log
 hash -d init=/etc/init.d
 
-alias phpstorm="~/bin/PhpStorm-127.100/bin/phpstorm.sh >/dev/null 2>&1 &"
+GITHUB="https://github.com/xytis"
 
-GITHUB="https://github.com/domnikl"
-
-if `which google-chrome > /dev/null`; then
-	alias gh="google-chrome $GITHUB >/dev/null 2>&1"
-else
-	alias gh="open $GITHUB"
-fi
+alias gh="chrome $GITHUB"
