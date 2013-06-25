@@ -107,6 +107,11 @@ if [ -d "$HOME/.rvm/bin" ]; then
 	export PATH=$PATH:$HOME/.rvm/bin
 fi
 
+# add personal .bin folder to path
+if [ -d "$HOME/.bin" ]; then
+	export PATH=$PATH:$HOME/.bin
+fi
+
 if [ -e "$HOME/.rvm/scripts/rvm" ]; then
 	source $HOME/.rvm/scripts/rvm
 fi

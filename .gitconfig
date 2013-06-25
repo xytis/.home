@@ -15,6 +15,8 @@
   cim = commit -m
   cam = commit -am
 	pom = push origin master
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [user]
 	name = Vytis Valentinavičius
 	email = xytis2000@gmail.com
@@ -22,3 +24,5 @@
 	diff = auto
 [push]
 	default = simple
+[core]
+	excludesfile = /home/xytis/.gitignore_global
