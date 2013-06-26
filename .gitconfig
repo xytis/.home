@@ -22,7 +22,5 @@
 	email = xytis2000@gmail.com
 [color]
 	diff = auto
-[push]
-	default = simple
 [core]
 	excludesfile = /home/xytis/.gitignore_global
