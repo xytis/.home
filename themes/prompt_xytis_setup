@@ -27,6 +27,8 @@ function prompt_steeef_precmd {
   if (( $+functions[python-info] )); then
     python-info
   fi
+
+  set-terminal-tab-title `pwd`
 }
 
 function prompt_steeef_setup {
