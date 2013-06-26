@@ -23,6 +23,6 @@
 [color]
 	diff = auto
 [push]
-	default = simple
+	default = current
 [core]
-	excludesfile = /home/xytis/.gitignore_global
+	excludesfile = ~/.gitignore_global
