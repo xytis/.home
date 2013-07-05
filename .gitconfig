@@ -17,12 +17,19 @@
 	pom = push origin master
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+  up = svn rebase
+  dci = svn dcommit
+
 [user]
 	name = Vytis Valentinavičius
 	email = xytis2000@gmail.com
 [color]
 	diff = auto
+	ui = auto
 [push]
 	default = current
 [core]
 	excludesfile = ~/.gitignore_global
+[github]
+	user = xytis
