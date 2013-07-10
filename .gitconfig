@@ -38,3 +38,7 @@
 	excludesfile = ~/.gitignore_global
 [github]
 	user = xytis
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
