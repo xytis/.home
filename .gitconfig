@@ -17,6 +17,7 @@
 	pom = push origin master
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	touch = commit --allow-empty
 [user]
 	name = Vytis Valentinavičius
 	email = xytis2000@gmail.com
