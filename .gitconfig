@@ -18,12 +18,28 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	touch = commit --allow-empty
+
+  zopa = !git log --graph --decorate --pretty=oneline --abbrev-commit --all $(git fsck --no-reflogs | grep commit | cut -d\\  -f3)
+
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort
+  ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+
+  up = svn rebase
+  dci = svn dcommit
+
 [user]
 	name = Vytis Valentinavičius
 	email = xytis2000@gmail.com
 [color]
 	diff = auto
+	ui = auto
 [push]
 	default = current
 [core]
 	excludesfile = ~/.gitignore_global
+[github]
+	user = xytis
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
